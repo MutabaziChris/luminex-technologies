@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 350" width="1000" height="350">
+  <defs>
+    <!-- Metallic Gold Gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFBEB"/>
+      <stop offset="30%" stop-color="#FCD34D"/>
+      <stop offset="65%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#78350F"/>
+    </linearGradient>
+
+    <!-- Deep Blue Metallic Gradient -->
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="50%" stop-color="#1E50FF"/>
+      <stop offset="100%" stop-color="#1E3A8A"/>
+    </linearGradient>
+
+    <!-- Obsidian Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060812"/>
+      <stop offset="100%" stop-color="#0B1021"/>
+    </linearGradient>
+
+    <!-- Glow Effect -->
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background Outer Card -->
+  <rect width="1000" height="350" rx="32" fill="url(#bgGrad)" stroke="url(#goldGrad)" stroke-width="4"/>
+
+  <!-- Logo Emblem Symbol (Gold & Blue Arc L) -->
+  <g transform="translate(60, 50)">
+    <!-- Outer Curved Gold Swoosh -->
+    <path d="M 40,210 Q 30,120 90,60 C 140,10 200,40 210,90 Q 220,130 150,140 Q 110,145 95,200 Z" 
+          fill="url(#goldGrad)" filter="url(#goldGlow)"/>
+    
+    <!-- Inner Metallic Blue L Block -->
+    <path d="M 85,75 L 125,75 L 125,185 L 210,185 L 210,215 L 85,215 Z" 
+          fill="url(#blueGrad)"/>
+
+    <!-- Accent Arc Glow -->
+    <path d="M 60,190 C 80,100 150,50 220,70" 
+          fill="none" stroke="url(#goldGrad)" stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <!-- Brand Name Typography: LUMINEX -->
+  <text x="320" y="160" 
+        font-family="'Space Grotesk', 'Plus Jakarta Sans', sans-serif" 
+        font-size="96" 
+        font-weight="900" 
+        letter-spacing="12" 
+        fill="url(#goldGrad)" 
+        filter="url(#goldGlow)">
+    LUMINEX
+  </text>
+
+  <!-- Subtitle Typography: TECHNOLOGIES -->
+  <text x="325" y="225" 
+        font-family="'Plus Jakarta Sans', sans-serif" 
+        font-size="36" 
+        font-weight="700" 
+        letter-spacing="16" 
+        fill="#94A3B8">
+    TECHNOLOGIES
+  </text>
+
+  <!-- Tagline Divider Line -->
+  <line x1="325" y1="250" x2="900" y2="250" stroke="url(#goldGrad)" stroke-width="2" opacity="0.6"/>
+
+  <!-- Tagline Text -->
+  <text x="325" y="280" 
+        font-family="'Plus Jakarta Sans', sans-serif" 
+        font-size="20" 
+        font-weight="600" 
+        letter-spacing="4" 
+        fill="#D97706">
+    INTELLIGENT SOFTWARE. LASTING IMPACT.
+  </text>
+</svg>

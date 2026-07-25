@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1584 396" width="1584" height="396">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060812"/>
+      <stop offset="50%" stop-color="#0B1021"/>
+      <stop offset="100%" stop-color="#04060E"/>
+    </linearGradient>
+
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFBEB"/>
+      <stop offset="30%" stop-color="#FCD34D"/>
+      <stop offset="70%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#78350F"/>
+    </linearGradient>
+
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="50%" stop-color="#1E50FF"/>
+      <stop offset="100%" stop-color="#00F0FF"/>
+    </linearGradient>
+
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(223, 178, 89, 0.05)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Dark Background & Grid -->
+  <rect width="1584" height="396" fill="url(#bgGrad)"/>
+  <rect width="1584" height="396" fill="url(#grid)"/>
+
+  <!-- Gold Border Accent Frame -->
+  <rect width="1584" height="396" fill="none" stroke="url(#goldGrad)" stroke-width="4"/>
+
+  <!-- Glow Orbs -->
+  <circle cx="200" cy="198" r="250" fill="rgba(217, 119, 6, 0.08)" filter="blur(60px)"/>
+  <circle cx="1300" cy="198" r="250" fill="rgba(30, 80, 255, 0.08)" filter="blur(60px)"/>
+
+  <!-- Logo Emblem -->
+  <g transform="translate(100, 75)">
+    <path d="M 40,210 Q 30,120 90,60 C 140,10 200,40 210,90 Q 220,130 150,140 Q 110,145 95,200 Z" fill="url(#goldGrad)"/>
+    <path d="M 85,75 L 125,75 L 125,185 L 210,185 L 210,215 L 85,215 Z" fill="url(#blueGrad)"/>
+  </g>
+
+  <!-- Text Header -->
+  <text x="340" y="170" font-family="'Space Grotesk', sans-serif" font-size="72" font-weight="900" letter-spacing="8" fill="url(#goldGrad)">
+    LUMINEX TECHNOLOGIES
+  </text>
+
+  <text x="345" y="235" font-family="'Plus Jakarta Sans', sans-serif" font-size="28" font-weight="700" letter-spacing="12" fill="#94A3B8">
+    INTELLIGENT SOFTWARE. LASTING IMPACT.
+  </text>
+
+  <text x="345" y="285" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="600" fill="#CBD5E1">
+    Dental Clinic Portals • Personal Portfolios • Enterprise Web Apps • AI Solutions • Mobile Apps
+  </text>
+
+  <text x="1250" y="340" font-family="'Space Grotesk', sans-serif" font-size="24" font-weight="800" fill="url(#goldGrad)">
+    luminex.rw
+  </text>
+</svg>
