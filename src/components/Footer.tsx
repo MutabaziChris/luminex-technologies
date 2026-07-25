@@ -27,7 +27,7 @@ export const Footer: React.FC<FooterProps> = ({
   };
 
   return (
-    <footer style={{ background: '#04060E', borderTop: '1px solid rgba(223, 178, 89, 0.2)', paddingTop: '70px', paddingBottom: '30px' }}>
+    <footer className="footer-container" style={{ background: '#04060E', borderTop: '1px solid rgba(223, 178, 89, 0.2)', paddingTop: '70px', paddingBottom: '30px' }}>
       <div className="max-container">
         
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '40px', marginBottom: '60px' }}>
@@ -236,6 +236,15 @@ export const Footer: React.FC<FooterProps> = ({
         </div>
 
       </div>
+
+      {/* Responsive Footer Clearance for Mobile Dock */}
+      <style>{`
+        @media (max-width: 768px) {
+          .footer-container {
+            padding-bottom: 95px !important;
+          }
+        }
+      `}</style>
     </footer>
   );
 };
