@@ -58,7 +58,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         left: 0,
         right: 0,
         width: '100%',
-        zIndex: 500, // Kept below modal overlay z-index (2000)
+        zIndex: 500,
         transition: 'all 0.3s ease',
         background: scrolled
           ? theme === 'light' ? 'rgba(255, 255, 255, 0.98)' : 'rgba(6, 8, 18, 0.96)'
@@ -74,19 +74,19 @@ export const Navbar: React.FC<NavbarProps> = ({
       }}
     >
       <div
-        className="max-container"
+        className="max-container navbar-inner-container"
         style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          height: '84px',
-          paddingLeft: '16px',
-          paddingRight: '16px'
+          height: '76px',
+          paddingLeft: '12px',
+          paddingRight: '12px'
         }}
       >
         
         {/* Prominent Gold-Bordered Logo */}
-        <div style={{ flexShrink: 0 }}>
+        <div style={{ flexShrink: 0, display: 'flex', alignItems: 'center' }}>
           <BrandLogo size="sm" showTagline={false} theme={theme} onClick={() => handleNavClick('home')} />
         </div>
 
@@ -121,8 +121,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           ))}
         </nav>
 
-        {/* Right CTA Actions & Controls */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+        {/* Right Controls Container */}
+        <div className="navbar-controls-group" style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
           
           {/* Theme Toggle Button (Sun / Moon) */}
           <button
@@ -131,8 +131,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: '38px',
-              height: '38px',
+              width: '36px',
+              height: '36px',
               borderRadius: '50%',
               background: theme === 'light' ? 'rgba(15, 23, 42, 0.06)' : 'rgba(255, 255, 255, 0.08)',
               border: theme === 'light' ? '1px solid rgba(15, 23, 42, 0.15)' : '1px solid rgba(223, 178, 89, 0.4)',
@@ -144,7 +144,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             title={theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
             aria-label="Toggle Theme Mode"
           >
-            {theme === 'light' ? <Moon style={{ width: '18px', height: '18px' }} /> : <Sun style={{ width: '18px', height: '18px' }} />}
+            {theme === 'light' ? <Moon style={{ width: '17px', height: '17px' }} /> : <Sun style={{ width: '17px', height: '17px' }} />}
           </button>
 
           {/* Currency Switcher */}
@@ -153,20 +153,20 @@ export const Navbar: React.FC<NavbarProps> = ({
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '5px',
-              padding: '6px 12px',
+              gap: '4px',
+              padding: '6px 10px',
               background: theme === 'light' ? 'rgba(217, 119, 6, 0.12)' : 'rgba(223, 178, 89, 0.15)',
               border: theme === 'light' ? '1px solid rgba(217, 119, 6, 0.35)' : '1px solid rgba(223, 178, 89, 0.4)',
               borderRadius: 'var(--radius-full)',
               color: theme === 'light' ? '#B45309' : '#FCD34D',
-              fontSize: '0.775rem',
+              fontSize: '0.75rem',
               fontWeight: 800,
               cursor: 'pointer',
               flexShrink: 0
             }}
             title="Toggle Currency (RWF / USD)"
           >
-            <Globe style={{ width: '14px', height: '14px', color: theme === 'light' ? '#B45309' : '#DFB259' }} />
+            <Globe style={{ width: '13px', height: '13px', color: theme === 'light' ? '#B45309' : '#DFB259' }} />
             <span>{currency}</span>
           </button>
 
@@ -198,30 +198,30 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={onOpenScheduler}
             className="btn-gold navbar-cta-btn"
             style={{
-              padding: '8px 16px',
-              fontSize: '0.825rem',
+              padding: '7px 12px',
+              fontSize: '0.8rem',
               flexShrink: 0,
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '6px'
+              gap: '5px'
             }}
           >
-            <PhoneCall style={{ width: '15px', height: '15px', flexShrink: 0 }} />
+            <PhoneCall style={{ width: '14px', height: '14px', flexShrink: 0 }} />
             <span className="cta-full-text">Schedule Call</span>
             <span className="cta-short-text">Call</span>
           </button>
 
-          {/* Mobile Menu Toggle */}
+          {/* High-Contrast Mobile Hamburger Menu Toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="mobile-toggle"
+            className="mobile-toggle-btn"
             style={{
-              background: theme === 'light' ? 'rgba(15, 23, 42, 0.05)' : 'rgba(255, 255, 255, 0.05)',
-              border: theme === 'light' ? '1px solid rgba(15, 23, 42, 0.12)' : '1px solid rgba(255, 255, 255, 0.12)',
+              background: theme === 'light' ? 'rgba(217, 119, 6, 0.12)' : 'rgba(223, 178, 89, 0.15)',
+              border: theme === 'light' ? '1.5px solid #D97706' : '1.5px solid #FCD34D',
               borderRadius: '10px',
-              color: theme === 'light' ? '#0F172A' : '#F8FAFC',
+              color: theme === 'light' ? '#B45309' : '#FCD34D',
               cursor: 'pointer',
-              padding: '6px',
+              padding: '7px 9px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -240,7 +240,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div
           style={{
             background: theme === 'light' ? '#FFFFFF' : '#060812',
-            borderBottom: '1px solid rgba(217, 119, 6, 0.25)',
+            borderBottom: '2px solid #D97706',
             padding: '20px 16px',
             display: 'flex',
             flexDirection: 'column',
@@ -249,11 +249,11 @@ export const Navbar: React.FC<NavbarProps> = ({
           }}
         >
           {[
-            { id: 'home', label: 'Home' },
-            { id: 'services', label: 'Services' },
-            { id: 'portfolio', label: 'Case Studies' },
+            { id: 'home', label: 'Home Overview' },
+            { id: 'services', label: 'Services & Capabilities' },
+            { id: 'portfolio', label: 'Case Studies Portfolio' },
             { id: 'pricing', label: 'Pricing & Plans (250k+ RWF)' },
-            { id: 'about', label: 'About Us' },
+            { id: 'about', label: 'About Luminex' },
             { id: 'contact', label: 'Contact Us' }
           ].map((item) => (
             <button
@@ -266,7 +266,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 color: currentView === item.id ? '#B45309' : theme === 'light' ? '#0F172A' : '#F8FAFC',
                 fontSize: '1rem',
                 fontWeight: currentView === item.id ? 800 : 600,
-                padding: '8px 0',
+                padding: '10px 0',
                 borderBottom: '1px solid rgba(0, 0, 0, 0.05)'
               }}
             >
@@ -298,7 +298,14 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Responsive Custom Rules */}
       <style>{`
-        @media (max-width: 520px) {
+        @media (max-width: 480px) {
+          .navbar-inner-container {
+            padding-left: 6px !important;
+            padding-right: 6px !important;
+          }
+          .navbar-controls-group {
+            gap: 4px !important;
+          }
           .cta-full-text {
             display: none !important;
           }
@@ -306,11 +313,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             display: inline !important;
           }
           .navbar-cta-btn {
-            padding: 6px 10px !important;
-            font-size: 0.75rem !important;
+            padding: 5px 8px !important;
+            font-size: 0.725rem !important;
           }
         }
-        @media (min-width: 521px) {
+        @media (min-width: 481px) {
           .cta-short-text {
             display: none !important;
           }
@@ -322,9 +329,12 @@ export const Navbar: React.FC<NavbarProps> = ({
           .desktop-only {
             display: none !important;
           }
+          .mobile-toggle-btn {
+            display: flex !important;
+          }
         }
         @media (min-width: 993px) {
-          .mobile-toggle {
+          .mobile-toggle-btn {
             display: none !important;
           }
         }

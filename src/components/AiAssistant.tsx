@@ -58,21 +58,20 @@ export const AiAssistant: React.FC<AiAssistantProps> = ({ onOpenScheduler, onOpe
       {/* Floating Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
+        className="ai-float-toggle"
         style={{
           position: 'fixed',
-          bottom: '24px',
-          right: '24px',
-          zIndex: 180,
+          zIndex: 450,
           width: '54px',
           height: '54px',
           borderRadius: '50%',
           background: 'linear-gradient(135deg, #D97706 0%, #B45309 100%)',
-          border: '1px solid rgba(255, 255, 255, 0.3)',
+          border: '2px solid #FFFFFF',
           color: '#FFFFFF',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          boxShadow: '0 4px 25px rgba(217, 119, 6, 0.4)',
+          boxShadow: '0 8px 30px rgba(217, 119, 6, 0.5)',
           cursor: 'pointer',
           transition: 'transform 0.25s ease'
         }}
@@ -84,19 +83,17 @@ export const AiAssistant: React.FC<AiAssistantProps> = ({ onOpenScheduler, onOpe
       {/* Floating Chat Window */}
       {isOpen && (
         <div
-          className="glass-panel"
+          className="glass-panel ai-chat-window"
           style={{
             position: 'fixed',
-            bottom: '90px',
-            right: '24px',
-            zIndex: 180,
-            width: 'min(380px, calc(100vw - 32px))',
-            height: '520px',
+            zIndex: 2100,
+            width: 'min(380px, calc(100vw - 24px))',
+            height: '500px',
             display: 'flex',
             flexDirection: 'column',
             background: 'var(--bg-card)',
-            border: '1px solid var(--border-gold)',
-            boxShadow: 'var(--shadow-hover)',
+            border: '2px solid var(--primary-gold)',
+            boxShadow: '0 20px 50px rgba(0, 0, 0, 0.4)',
             borderRadius: '20px',
             overflow: 'hidden'
           }}
@@ -233,6 +230,33 @@ export const AiAssistant: React.FC<AiAssistantProps> = ({ onOpenScheduler, onOpe
           </form>
         </div>
       )}
+
+      {/* Responsive Placement Styling */}
+      <style>{`
+        @media (max-width: 768px) {
+          .ai-float-toggle {
+            bottom: 76px !important;
+            right: 16px !important;
+          }
+          .ai-chat-window {
+            bottom: 136px !important;
+            right: 12px !important;
+            left: 12px !important;
+            width: auto !important;
+            height: 460px !important;
+          }
+        }
+        @media (min-width: 769px) {
+          .ai-float-toggle {
+            bottom: 24px !important;
+            right: 24px !important;
+          }
+          .ai-chat-window {
+            bottom: 90px !important;
+            right: 24px !important;
+          }
+        }
+      `}</style>
     </>
   );
 };

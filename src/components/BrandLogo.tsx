@@ -11,9 +11,9 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
   size = 'md',
   onClick
 }) => {
-  let height = '54px';
-  if (size === 'sm') height = '48px';
-  if (size === 'lg') height = '68px';
+  let defaultHeight = '54px';
+  if (size === 'sm') defaultHeight = '46px';
+  if (size === 'lg') defaultHeight = '68px';
 
   return (
     <div
@@ -28,16 +28,24 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
       <img
         src="/luminex-logo-exact.png"
         alt="Luminex Technologies Logo"
+        className="brand-logo-img"
         style={{
-          height: height,
+          height: defaultHeight,
           width: 'auto',
           objectFit: 'contain',
-          borderRadius: '12px',
+          borderRadius: '10px',
           border: '2px solid #D97706',
-          boxShadow: '0 4px 20px rgba(217, 119, 6, 0.35)',
+          boxShadow: '0 4px 18px rgba(217, 119, 6, 0.35)',
           display: 'block'
         }}
       />
+      <style>{`
+        @media (max-width: 480px) {
+          .brand-logo-img {
+            height: 38px !important;
+          }
+        }
+      `}</style>
     </div>
   );
 };
