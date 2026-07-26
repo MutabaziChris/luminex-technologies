@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Quote, Building2 } from 'lucide-react';
 import { TESTIMONIALS } from '../data/content';
 
 export const TestimonialsCarousel: React.FC = () => {
@@ -21,13 +21,13 @@ export const TestimonialsCarousel: React.FC = () => {
         
         <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 50px auto' }}>
           <div className="badge-pill" style={{ marginBottom: '16px' }}>
-            VERIFIED EXECUTIVE TESTIMONIALS
+            VERIFIED INDUSTRY CASE OUTCOMES
           </div>
           <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', fontWeight: 800, marginBottom: '16px' }}>
-            Trusted by Leaders <span className="gradient-text-blue">Across Africa</span>
+            Measurable Client <span className="gradient-text-blue">Impact</span>
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: 1.6 }}>
-            Read how Luminex Technologies empowers doctors, CEOs, CIOs, and business owners to achieve measurable success.
+            Verified operational results and feedback from executives and business leaders.
           </p>
         </div>
 
@@ -51,17 +51,33 @@ export const TestimonialsCarousel: React.FC = () => {
 
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '20px' }}>
             
-            {/* Executive Profile */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-              <img
-                src={current.avatar}
-                alt={current.name}
-                style={{ width: '56px', height: '56px', borderRadius: '50%', objectFit: 'cover', border: '2px solid var(--primary-gold)' }}
-              />
+            {/* Executive Role & Organization */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+              <div
+                style={{
+                  width: '50px',
+                  height: '50px',
+                  borderRadius: '12px',
+                  background: 'rgba(217, 119, 6, 0.12)',
+                  border: '1.5px solid var(--primary-gold)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0
+                }}
+              >
+                <Building2 style={{ width: '24px', height: '24px', color: 'var(--primary-gold)' }} />
+              </div>
               <div>
-                <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-main)' }}>{current.name}</h4>
-                <div style={{ fontSize: '0.85rem', color: 'var(--primary-gold)', fontWeight: 700 }}>{current.role}</div>
-                <div style={{ fontSize: '0.775rem', color: 'var(--text-subtle)' }}>{current.organization} • {current.industry}</div>
+                <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-main)' }}>
+                  {current.role}
+                </h4>
+                <div style={{ fontSize: '0.85rem', color: 'var(--primary-gold)', fontWeight: 700 }}>
+                  {current.organization}
+                </div>
+                <div style={{ fontSize: '0.775rem', color: 'var(--text-subtle)', fontWeight: 600 }}>
+                  Industry Vertical: {current.industry}
+                </div>
               </div>
             </div>
 

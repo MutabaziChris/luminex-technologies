@@ -42,17 +42,17 @@ export const LeadershipSection: React.FC = () => {
           <div style={{ textAlign: 'center' }}>
             <div
               style={{
-                width: '180px',
-                height: '180px',
+                width: '190px',
+                height: '190px',
                 margin: '0 auto 20px auto',
                 borderRadius: '50%',
-                padding: '6px',
+                padding: '5px',
                 background: 'linear-gradient(135deg, #D97706 0%, #1E50FF 100%)',
-                boxShadow: '0 10px 30px rgba(217, 119, 6, 0.3)'
+                boxShadow: '0 10px 30px rgba(217, 119, 6, 0.4)'
               }}
             >
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
+                src="/mutabazi-chris.jpg"
                 alt="Mutabazi Jean Pierre Christian - Founder & CEO"
                 style={{
                   width: '100%',
