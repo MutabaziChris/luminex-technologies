@@ -9,11 +9,15 @@ interface BrandLogoProps {
 
 export const BrandLogo: React.FC<BrandLogoProps> = ({
   size = 'md',
+  theme = 'light',
   onClick
 }) => {
   let defaultHeight = '54px';
   if (size === 'sm') defaultHeight = '46px';
   if (size === 'lg') defaultHeight = '68px';
+
+  const borderColor = theme === 'dark' ? '#FCD34D' : '#D97706';
+  const shadowColor = theme === 'dark' ? 'rgba(252, 211, 77, 0.25)' : 'rgba(217, 119, 6, 0.25)';
 
   return (
     <div
@@ -34,9 +38,10 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
           width: 'auto',
           objectFit: 'contain',
           borderRadius: '10px',
-          border: '2px solid #D97706',
-          boxShadow: '0 4px 18px rgba(217, 119, 6, 0.35)',
-          display: 'block'
+          border: `1.5px solid ${borderColor}`,
+          boxShadow: `0 4px 14px ${shadowColor}`,
+          display: 'block',
+          transition: 'border-color 0.2s ease, box-shadow 0.2s ease'
         }}
       />
       <style>{`
