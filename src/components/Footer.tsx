@@ -35,7 +35,7 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Brand & Description Column */}
           <div>
             <div style={{ marginBottom: '16px' }}>
-              <BrandLogo size="md" showTagline={true} onClick={() => handleNavClick('home')} />
+              <BrandLogo size="md" showTagline={true} theme="dark" onClick={() => handleNavClick('home')} />
             </div>
 
             <p style={{ color: '#94A3B8', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '24px' }}>
