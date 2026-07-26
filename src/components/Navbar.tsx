@@ -91,10 +91,11 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
 
         {/* Desktop Nav Links */}
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '22px' }} className="desktop-only">
+        <nav style={{ display: 'flex', alignItems: 'center', gap: '18px' }} className="desktop-only">
           {[
             { id: 'home', label: 'Home' },
             { id: 'services', label: 'Services' },
+            { id: 'industries', label: 'Industries' },
             { id: 'portfolio', label: 'Case Studies' },
             { id: 'pricing', label: 'Pricing & Plans' },
             { id: 'about', label: 'About' },
@@ -110,7 +111,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   ? '#B45309'
                   : theme === 'light' ? '#0F172A' : '#F8FAFC',
                 fontWeight: currentView === item.id ? 800 : 700,
-                fontSize: '0.9rem',
+                fontSize: '0.875rem',
                 cursor: 'pointer',
                 transition: 'color 0.2s',
                 padding: '6px 2px'
@@ -251,6 +252,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           {[
             { id: 'home', label: 'Home Overview' },
             { id: 'services', label: 'Services & Capabilities' },
+            { id: 'industries', label: 'Industries We Serve' },
             { id: 'portfolio', label: 'Case Studies Portfolio' },
             { id: 'pricing', label: 'Pricing & Plans (250k+ RWF)' },
             { id: 'about', label: 'About Luminex' },

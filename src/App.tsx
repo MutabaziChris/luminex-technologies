@@ -4,9 +4,13 @@ import { HeroSection } from './components/HeroSection';
 import { TechMarquee } from './components/TechMarquee';
 import { ServicesSection } from './components/ServicesSection';
 import { IndustriesGrid } from './components/IndustriesGrid';
+import { WhyChooseUsSection } from './components/WhyChooseUsSection';
+import { SecurityComplianceSection } from './components/SecurityComplianceSection';
 import { ProcessTimeline } from './components/ProcessTimeline';
 import { CaseStudyGallery } from './components/CaseStudyGallery';
 import { TechMatrix } from './components/TechMatrix';
+import { LeadershipSection } from './components/LeadershipSection';
+import { TestimonialsCarousel } from './components/TestimonialsCarousel';
 import { PricingSection } from './components/PricingSection';
 import { AboutSection } from './components/AboutSection';
 import { BlogSection } from './components/BlogSection';
@@ -14,7 +18,6 @@ import { FaqAccordion } from './components/FaqAccordion';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { SeoHead } from './components/SeoHead';
-import { TestimonialsCarousel } from './components/TestimonialsCarousel';
 import { MobileQuickDock } from './components/MobileQuickDock';
 
 import { RoiCalculatorModal } from './components/RoiCalculatorModal';
@@ -95,8 +98,12 @@ export function App() {
             <TechMarquee />
             <ServicesSection onOpenInquiry={handleOpenInquiry} />
             <IndustriesGrid />
+            <WhyChooseUsSection />
+            <SecurityComplianceSection />
             <ProcessTimeline />
             <CaseStudyGallery onOpenInquiry={handleOpenInquiry} />
+            <TechMatrix />
+            <LeadershipSection />
             <TestimonialsCarousel />
             <PricingSection
               currency={currency}
@@ -113,7 +120,17 @@ export function App() {
           <div>
             <ServicesSection onOpenInquiry={handleOpenInquiry} />
             <IndustriesGrid />
+            <SecurityComplianceSection />
             <ProcessTimeline />
+            <ContactSection />
+          </div>
+        )}
+
+        {currentView === 'industries' && (
+          <div>
+            <IndustriesGrid />
+            <ServicesSection onOpenInquiry={handleOpenInquiry} />
+            <WhyChooseUsSection />
             <ContactSection />
           </div>
         )}
@@ -141,6 +158,7 @@ export function App() {
               onOpenInquiry={handleOpenInquiry}
               onOpenEstimator={() => setIsEstimatorOpen(true)}
             />
+            <WhyChooseUsSection />
             <ContactSection />
           </div>
         )}
@@ -148,6 +166,7 @@ export function App() {
         {currentView === 'about' && (
           <div>
             <AboutSection />
+            <LeadershipSection />
             <ProcessTimeline />
             <ContactSection />
           </div>

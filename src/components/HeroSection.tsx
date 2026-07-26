@@ -33,7 +33,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="ambient-glow-blue" style={{ top: '200px', right: '5%' }}></div>
 
       <div className="max-container" style={{ position: 'relative', zIndex: 1 }}>
-        <div style={{ textAlign: 'center', maxWidth: '920px', margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', maxWidth: '960px', margin: '0 auto' }}>
           
           {/* Top Enterprise Badge */}
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
@@ -42,39 +42,39 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               style={{ backdropFilter: 'blur(10px)' }}
             >
               <Sparkles style={{ width: '13px', height: '13px', color: 'var(--primary-gold)', flexShrink: 0 }} />
-              <span>AFRICA'S PREMIER ENTERPRISE SOFTWARE ENGINE</span>
+              <span>AFRICA'S PREMIUM SOFTWARE ENGINEERING PARTNER</span>
             </div>
           </div>
 
-          {/* Main Headline */}
+          {/* Main Executive Headline */}
           <h1
             style={{
-              fontSize: 'clamp(1.75rem, 5.5vw, 4.2rem)',
-              fontWeight: 800,
+              fontSize: 'clamp(2.1rem, 5.5vw, 4.4rem)',
+              fontWeight: 900,
               lineHeight: 1.15,
-              marginBottom: '20px',
+              marginBottom: '22px',
               letterSpacing: '-0.03em',
               wordBreak: 'break-word',
               hyphens: 'auto',
               color: 'var(--text-main)'
             }}
           >
-            Engineering the Future of <br className="desktop-only" />
-            <span className="gradient-text-blue">Digital Innovation.</span>
+            We Engineer Secure Digital Platforms <br className="desktop-only" />
+            <span className="gradient-text-blue">That Transform Businesses.</span>
           </h1>
 
-          {/* Subtitle */}
+          {/* Supporting Subtitle */}
           <p
             style={{
-              fontSize: 'clamp(0.95rem, 1.8vw, 1.25rem)',
+              fontSize: 'clamp(1rem, 1.8vw, 1.28rem)',
               color: 'var(--text-muted)',
-              lineHeight: 1.6,
-              maxWidth: '820px',
-              margin: '0 auto 30px auto',
+              lineHeight: 1.65,
+              maxWidth: '860px',
+              margin: '0 auto 34px auto',
               fontWeight: 600
             }}
           >
-            We build enterprise software, AI platforms, mobile apps, clinic portals, and personal websites that help businesses and leaders automate, scale, and thrive.
+            We build enterprise web applications, AI-powered platforms, mobile applications, and digital transformation solutions trusted by organizations that demand performance, security, and long-term scalability.
           </p>
 
           {/* Dual Main CTAs */}
@@ -83,9 +83,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '12px',
+              gap: '14px',
               flexWrap: 'wrap',
-              marginBottom: '40px'
+              marginBottom: '44px'
             }}
           >
             <button
@@ -116,13 +116,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </button>
           </div>
 
-          {/* Key Executive Trust Metrics Banner */}
+          {/* Key Honest Enterprise Pillars */}
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
               gap: '14px',
-              padding: '20px',
+              padding: '22px',
               background: 'var(--bg-card)',
               backdropFilter: 'blur(16px)',
               borderRadius: 'var(--radius-lg)',
@@ -132,23 +132,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             }}
           >
             <div>
-              <div style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 900, color: 'var(--text-main)', fontFamily: 'var(--font-heading)' }}>140+</div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--text-subtle)', textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: 800 }}>Projects Done</div>
+              <div style={{ fontSize: '1.1rem', fontWeight: 900, color: 'var(--primary-gold)', fontFamily: 'var(--font-heading)' }}>Enterprise-Grade</div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-subtle)', textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: 800 }}>Architecture</div>
             </div>
 
             <div>
-              <div style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 900, color: 'var(--primary-blue)', fontFamily: 'var(--font-heading)' }}>99.99%</div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--text-subtle)', textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: 800 }}>Cloud SLA</div>
+              <div style={{ fontSize: '1.1rem', fontWeight: 900, color: 'var(--primary-blue)', fontFamily: 'var(--font-heading)' }}>Security-First</div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-subtle)', textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: 800 }}>Development</div>
             </div>
 
             <div>
-              <div style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 900, color: '#10B981', fontFamily: 'var(--font-heading)' }}>12+</div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--text-subtle)', textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: 800 }}>Countries</div>
+              <div style={{ fontSize: '1.1rem', fontWeight: 900, color: '#10B981', fontFamily: 'var(--font-heading)' }}>Sub-50ms</div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-subtle)', textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: 800 }}>API Latency</div>
             </div>
 
             <div>
-              <div style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, color: 'var(--primary-gold)', fontFamily: 'var(--font-heading)' }}>99.4%</div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--text-subtle)', textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: 800 }}>Client CSAT</div>
+              <div style={{ fontSize: '1.1rem', fontWeight: 900, color: '#0284C7', fontFamily: 'var(--font-heading)' }}>Sub-Second</div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-subtle)', textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: 800 }}>Page Speeds</div>
             </div>
           </div>
 
