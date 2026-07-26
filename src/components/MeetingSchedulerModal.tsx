@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, Calendar, CheckCircle2 } from 'lucide-react';
+import { sendInquiryNotification } from '../utils/notifications';
 import confetti from 'canvas-confetti';
 
 interface MeetingSchedulerModalProps {
@@ -9,6 +10,7 @@ interface MeetingSchedulerModalProps {
 
 export const MeetingSchedulerModal: React.FC<MeetingSchedulerModalProps> = ({ isOpen, onClose }) => {
   const [step, setStep] = useState<'schedule' | 'submitted'>('schedule');
+  const [loading, setLoading] = useState(false);
   const [selectedDate, setSelectedDate] = useState('2026-07-28');
   const [selectedTime, setSelectedTime] = useState('10:00 AM (CAT)');
   const [formData, setFormData] = useState({
@@ -16,13 +18,29 @@ export const MeetingSchedulerModal: React.FC<MeetingSchedulerModalProps> = ({ is
     email: '',
     phone: '',
     company: '',
-    topic: 'Small Business / Clinic Website Scoping'
+    topic: 'Small Business / Clinic Website Scoping (500k RWF)'
   });
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
+
+    // Send dual dispatch to Email & Phone WhatsApp
+    await sendInquiryNotification({
+      formType: 'Executive Consultation Booking',
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      company: formData.company,
+      projectType: formData.topic,
+      date: selectedDate,
+      time: selectedTime,
+      message: `Requested consultation for topic: ${formData.topic}`
+    });
+
+    setLoading(false);
     setStep('submitted');
     try {
       confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
@@ -210,7 +228,8 @@ export const MeetingSchedulerModal: React.FC<MeetingSchedulerModalProps> = ({ is
                 />
                 <input
                   type="tel"
-                  placeholder="Phone Number (WhatsApp)"
+                  placeholder="Phone Number (WhatsApp) *"
+                  required
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   style={{
@@ -225,8 +244,8 @@ export const MeetingSchedulerModal: React.FC<MeetingSchedulerModalProps> = ({ is
                 />
               </div>
 
-              <button type="submit" className="btn-gold" style={{ width: '100%', justifyContent: 'center', marginTop: '10px' }}>
-                Confirm Consultation Booking
+              <button type="submit" disabled={loading} className="btn-gold" style={{ width: '100%', justifyContent: 'center', marginTop: '10px' }}>
+                {loading ? 'Sending Email & Phone Alert...' : 'Confirm Consultation Booking'}
               </button>
             </form>
           </div>
@@ -237,7 +256,7 @@ export const MeetingSchedulerModal: React.FC<MeetingSchedulerModalProps> = ({ is
               Discovery Call Confirmed!
             </h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '1rem', marginBottom: '24px' }}>
-              Thank you, {formData.name}. We have dispatched a Google Meet invite and calendar confirmation to <strong>{formData.email}</strong> for <strong>{selectedDate} at {selectedTime}</strong>.
+              Thank you, {formData.name}. We have dispatched a confirmation to your email (<strong>{formData.email}</strong>) and your booking alert to <strong>luminex.tech.rw@gmail.com</strong> and WhatsApp (+250 781 367 769).
             </p>
             <button onClick={onClose} className="btn-primary">
               Return to Website

@@ -1,22 +1,39 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, MessageSquare, CheckCircle2 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/content';
+import { sendInquiryNotification } from '../utils/notifications';
 import confetti from 'canvas-confetti';
 
 export const ContactSection: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    projectType: 'Small Business / Clinic Website',
+    projectType: 'Small Business / Clinic Website (500,000 RWF)',
     budgetRWF: '500,000 RWF',
     timeline: '1 - 2 Weeks',
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
+
+    // Dispatch to Email (luminex.tech.rw@gmail.com) and Phone WhatsApp (+250 781 367 769)
+    await sendInquiryNotification({
+      formType: 'Project Proposal Request',
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      projectType: formData.projectType,
+      budget: formData.budgetRWF,
+      timeline: formData.timeline,
+      message: formData.message
+    });
+
+    setLoading(false);
     setSubmitted(true);
     try {
       confetti({ particleCount: 100, spread: 80, origin: { y: 0.6 } });
@@ -118,10 +135,10 @@ export const ContactSection: React.FC = () => {
               <div style={{ textAlign: 'center', padding: '30px 0' }}>
                 <CheckCircle2 style={{ width: '64px', height: '64px', color: '#10B981', margin: '0 auto 16px auto' }} />
                 <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--text-main)', marginBottom: '8px' }}>
-                  Proposal Request Received!
+                  Proposal Request Dispatched!
                 </h3>
                 <p style={{ color: 'var(--text-muted)', fontSize: '1rem', marginBottom: '24px', lineHeight: 1.6 }}>
-                  Thank you, <strong>{formData.name}</strong>. Our principal team has received your project inquiry and will contact you via email (<strong>{formData.email}</strong>) or WhatsApp within 2 hours.
+                  Thank you, <strong>{formData.name}</strong>. Your inquiry has been dispatched to <strong>luminex.tech.rw@gmail.com</strong> and our mobile phone (+250 781 367 769). We will respond within 2 hours!
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
@@ -255,10 +272,11 @@ export const ContactSection: React.FC = () => {
 
                 <button
                   type="submit"
+                  disabled={loading}
                   className="btn-gold"
                   style={{ width: '100%', justifyContent: 'center', marginTop: '6px' }}
                 >
-                  <span>Submit Project Proposal Request</span>
+                  <span>{loading ? 'Sending to Email & Phone...' : 'Submit Project Proposal Request'}</span>
                   <Send style={{ width: '16px', height: '16px' }} />
                 </button>
               </form>
